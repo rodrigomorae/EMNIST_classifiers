@@ -30,24 +30,25 @@ Based on the Knowledge Discovery in Databases (KDD) process, I used techiniques 
 To avoid simple noises, I analysed the train dataset to identify low pixels levels can be ignored change them to zero. Therefore I plot a histogram with all the pixels and their values and it was possible to conclude that pixel values less than ~17% of the max value (255) woudl be zeroed, since aroud this percentage ends the first "coomb" on the histogram.
 
 ### Feature Selection and Tranformation
-As all the predictors columns (features) are numerical and continuous I used two techniques to reduce the data dimensions and improuve the data representation. 
-Following the literature, I used the PCA transformation to select just the best features, thoese represent the most of variability of the data. To analyze it, I plotted a graph with the cumulative variance by the number of the features (PC). It was be possible conclude that the 100 firsts components we have 80% of the variance of the data and with the 200 firsts, we have 90%.
-Another technique tryed was the LDA. It's a technique similar to PCA but it consideres the data calsses to try to improve teh data representation. The application of LDA results in a dataset with the number os predictors columns iquals the number of different classes minus one.
+As all the predictors columns (features) are numerical and continuous, it was used two techniques to reduce the data dimensions and improuve the data representation. 
+Following the literature, it was used the PCA transformation to select just the best features, thoese represent the most of variability of the data. To analyze it, was plotted a graph with the cumulative variance by the number of the features (PC) and it was possible to conclude that with the 100 firsts components represent 80% of the variance of the data and the 200 firsts represent 90%.
+Another technique tryed was the LDA. It's a technique similar to PCA but it consideres the data classes to try to improve the data representation. The application of LDA results in a dataset with the number os predictors columns iquals the number of different classes minus one.
 
 References:
 - PCA: 
   - https://www.analyticsvidhya.com/blog/2016/03/practical-guide-principal-component-analysis-python/
 - LDA: 
-  - https://tgmstat.wordpress.com/2014/01/15/computing-and-visualizing-lda-in-r/
-  - https://rstudio-pubs-static.s3.amazonaws.com/35817_2552e05f1d4e4db8ba87b334101a43da.html
-  -	https://medium.com/towards-data-science/is-lda-a-dimensionality-reduction-technique-or-a-classifier-algorithm-eeed4de9953a
+	- https://tgmstat.wordpress.com/2014/01/15/computing-and-visualizing-lda-in-r/
+ 	- https://rstudio-pubs-static.s3.amazonaws.com/35817_2552e05f1d4e4db8ba87b334101a43da.html
+ 	- https://medium.com/towards-data-science/is-lda-a-dimensionality-reduction-technique-or-a-classifier-algorithm-eeed4de9953  
+	- https://medium.com/towards-data-science/is-lda-a-dimensionality-reduction-technique-or-a-classifier-algorithm-eeed4de9953a
 	 
 
 ### Normalizaton
-To apply the calssifiers after the tranformations, I used a comum MAX-MIN normalization in the dataset.
+To apply the calssifiers after the tranformations, it was used a comum MAX-MIN normalization in the dataset.
 
 ### Classification
-The classification problem is a classical supervised classification problem since we have a train dataset labled. To do this task, I tryed to aplly four differents classifiers. I adopted the KNN and SVM classifiers looking some papers of litarature. The ANN classifier was tested too even though the data size is huge. Lestly, a DeepNeuralNetworks was used since it has a good potential in data sequencing as images data.
+The classification problem is a classical supervised classification problem since we have a train dataset labled. To do this task, it was tryed to aplly four differents classifiers. It adopted the KNN and SVM classifiers looking some papers of litarature. The ANN classifier was tested too even though the data size is huge. Lestly, a DeepNeuralNetworks was used since it has a good potential in data sequencing as images data.
 
 References:
 - KNN: 
@@ -64,7 +65,21 @@ References:
 - DNN:
   - https://www.r-bloggers.com/deep-learning-in-r-2/
   - http://docs.h2o.ai/h2o/latest-stable/h2o-docs/booklets/DeepLearningBooklet.pdf
+	- https://github.com/h2oai/h2o-tutorials/tree/master/tutorials/deeplearning
 	 
-## Classifiers application
+## Classifiers training
+For the application of the classifiers where defined subdatasets from the original with a % of the number of samples of teh original set. It was necessarary because the computional coast of the techinique applyed is high and the computer used was just a notebook woth a Corei5 and 8gb RAM memory. Analysis performed on theses subsets showed that the distribution and the variance of the data was minimally impacted.
+
+For the preparation of the data, it where used two aproaches. One of them applied the PCA while the other applied the LDA tranormation. To the PCA technique, was selected the firsts 200 principal components to defined teh dataset train and for LDA, all the 46 predictors columns created was used.
+
+The sequence of the applied techiniques on the dataset was:
+1 - Selection a fraction of the data;
+2 - Data Cleaning;
+3 - Feature selection and tranforamation;
+4 - Normalization,
+
+With the data ready, it was pssible to apply the classifiers. For this step, a lot of combinations of the % of the amouth of samples of the original set and classifiers parameter (as K for KNN; cost and kernel for SVM; number of nerons, learning rate and activation function for ANN; and number of nerons, regularization and activation function for DNN) where tested.
+
+The 
 
 
