@@ -38,7 +38,9 @@ Another technique tried was the Latent Dirichlet Allocation (LDA). It's a techni
 
 References:
 - PCA: 
+	- http://www.math.uwaterloo.ca/~aghodsib/courses/f06stat890/readings/tutorial_stat890.pdf
 	- https://www.analyticsvidhya.com/blog/2016/03/practical-guide-principal-component-analysis-python/
+	- http://enhancedatascience.com/2017/05/07/r-basics-pca-r/
 - LDA: 
 	- https://tgmstat.wordpress.com/2014/01/15/computing-and-visualizing-lda-in-r/
  	- https://rstudio-pubs-static.s3.amazonaws.com/35817_2552e05f1d4e4db8ba87b334101a43da.html
