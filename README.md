@@ -8,7 +8,7 @@ Your company is developing a software to digitize handwritten text. Your team ha
 - Objective: To develop a handwritten character digits classifier
 - Responsable: Rodrigo de Moraes
 - Programming language: R
-- Time spent: ~  hours (including the documentation)
+- Time spent: ~48 hours (including the documentation)
 
 ## How to run the code
 	1 - download all files in this directory;
@@ -16,7 +16,7 @@ Your company is developing a software to digitize handwritten text. Your team ha
 	3 - replace the mainDirectory variable value to the path were the files where donwloaded;
 	4 - run the code;
 
-Obs. the original code runs the best classifier founded. But it is possible to change parameters and classifiers and get another classifiers and results.  The steps 2 and 4.3.1 are analysis steps an can be ignored to run the classifier.
+Obs. the original code runs the best classifier founded. But it is possible to change parameters,to uncomment lines to get other classifiers and results. The steps 2 and 4.3.1 are analysis steps an can be ignored to run the classifier.
 
 ## The dataset
 The EMNIST dataset is a set of handwritten character digits derived from the [NIST Special Database 19](https://www.nist.gov/srd/nist-special-database-19)  and converted to a 28x28 pixel image format and dataset structure that directly matches the MNIST dataset (link is external) . Further information on the dataset contents and conversion process can be found in the paper available [here](https://arxiv.org/pdf/1702.05373v1.pdf). Orginal link [here](https://www.nist.gov/itl/iad/image-group/emnist-dataset).
@@ -50,7 +50,7 @@ References:
 To apply the calssifiers after the tranformations, it was used a comum MAX-MIN normalization in the dataset.
 
 ### Classification
-The classification problem is a classical supervised classification problem since we have a train dataset labled. To do this task, it was tryed to aplly four differents classifiers. It adopted the KNN and SVM classifiers looking some papers of litarature. The ANN classifier was tested too even though the data size is huge. Lestly, a DeepNeuralNetworks was used since it has a good potential in data sequencing as images data.
+The classification problem is a classical supervised classification problem since we have a train dataset labled. To do this task, it was tryed four differents classifiers. The KNN and SVM classifiers were adopted by looking some papers of litarature. The ANN classifier was tested too even though the data size is huge. Lestly, a DeepNeuralNetworks was used since it has a good potential in data sequencing as images data.
 
 References:
 - KNN: 
@@ -70,9 +70,9 @@ References:
 	- https://github.com/h2oai/h2o-tutorials/tree/master/tutorials/deeplearning
 	 
 ## Classifiers training
-For the application of the classifiers where defined subdatasets from the original with a % of the number of samples of teh original set. It was necessarary because the computional coast of the techinique applyed is high and the computer used was just a notebook woth a Corei5 and 8gb RAM memory. Analysis performed on theses subsets showed that the distribution and the variance of the data was minimally impacted.
+For the application of the classifiers where defined subdatasets from the original with a % of the number of samples of teh original set. It was necessarary because the computional coast of the techinique applyed is high and the computer used was just a notebook with a Core i5 and 8gb RAM memory. Analysis performed on theses subsets showed that the distribution and the variance of the data was minimally impacted.
 
-For the preparation of the data, it where used two aproaches. One of them applied the PCA while the other applied the LDA tranormation. To the PCA technique, was selected the firsts 200 principal components to defined teh dataset train and for LDA, all the 46 predictors columns created was used. 
+For the preparation of the data, it where used two aproaches. One of them applied the PCA while the other applied the LDA transformation. To the PCA technique, was selected the firsts 200 principal components to defined the dataset train and for LDA, all the 46 predictors columns created was used. 
 
 The sequence of the applied techiniques on the dataset was:
 	1 - Selection a fraction of the data;
@@ -82,9 +82,16 @@ The sequence of the applied techiniques on the dataset was:
 
 With the data ready, it was pssible to apply the classifiers. For this step, a lot of combinations of the % of the number of samples of the original dataset and classifiers parameter (as K for KNN; cost and kernel for SVM; number of nerons, learning rate and activation function for ANN; and number of nerons, regularization and activation function for DNN) were tested.
 
-For the application of KNN, SVM and ANN was used the R packages "class", "e1071" and "neuralnet" respectly. All of them does not provide funtions to antomaticly test many parameters values. So, to obtain preliminary results, the variation of parameters values of these three classifiers was mede manually. Unlike that, for the application of Deep Learning was used the "h2o" package that prodides a function able to test a lot of values and combinations of the parameters.
+For the application of KNN, SVM and ANN was used the R packages "class", "e1071" and "neuralnet" respectly. All of them does not provide funtions to antomaticly test many parameters values. So, to obtain preliminary results, the variation of parameters values of these three classifiers was mede manually. Unlike that, for the application of Deep Learning it was used the "h2o" package that provides a function able to test a lot of values and combinations of the parameters.
 
-The preliminary test results showed that ANN and SVM are very costly and to try to find the bests parameters values would take a lot of time. The KNN revealed a good computional cost, but the test acurracy whit the approches applyed reached just around 60%. Finally, the Deep Neural Network was the classifier with the best test and time results. The differentiated architecture of the technique and the multi-thread process privedes by the h2o peackage allowed to reach 
+The preliminary test results showed that ANN and SVM are very costly and to try to find the bests parameters values would take a lot of time. The KNN revealed a good computional cost, but the test acurracy whit the approches applyed reached just around 60%. Finally, the Deep Neural Network was the classifier with the best test and time results. The differentiated architecture of the technique and the multi-thread process provedes by the h2o peackage allowed to reach ~80% od accuracy in the test set.
+
+The final (and the best) classifier was obtained by the use the following approach:
+	- Select a subset of the original train dataset (1/3);
+	- Data cleaning removing possible noisy data;
+	- Selection junt predictors with variance (remove images edges);
+	- Natural normalization pixels values (divide by 255);
+	- Train and test a Deep Neural Networks.
 
 ## Points to improve
 
@@ -92,7 +99,8 @@ As improvments would be do:
 
 	- Apllay a under or over sampling techinique on the original imbalanced dataset to define a dataset with less number of samples but with a better representation of all data instead of a random selection;
 	- Use other cleaning techniques specify to images data; 
-	- Try more different sets of parameters to KNN, SVM and ANN classifiers;
+	- Try more different sets of parameters for all classifiers;
+	- A better results analysis to try to indentify critic classes; 
 	- Use a hadoop plataform and the Mahout Samsara Environment to run the techniques with all dataset.
 
 
