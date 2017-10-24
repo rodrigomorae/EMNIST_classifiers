@@ -31,7 +31,7 @@ Based on the Knowledge Discovery in Databases (KDD) process, techniques were use
 ### Data cleaning
 To avoid simple noises, the train dataset was analyzed to identify low pixels levels can be ignored change them to zero. To do this, a histogram with all the pixels and their values was made and it was possible to conclude that pixel values less than ~17% of the max value (255) would be zeroed, since around this percentage ends the first "coomb" on the histogram.
 
-### Features Selection and Tranformation
+### Features Selection and Transformation
 Considering that all the predictors columns (features) are numerical and continuous, it was used two techniques to reduce the data dimensions and improve the data representation.
 Following the literature, it was used the Principal Components Analysis (PCA) transformation to select just the best features (principal components- PC), those that represent the most of variability of the data. To analyze it, was plotted a graph with the cumulative variance by the number of the features (PC). This graph showed that with the 100 firsts components represent 80% of the variance of the data and the 200 firsts represent 90%.
 Another technique tried was the Latent Dirichlet Allocation (LDA). It's a technique similar to PCA but it considers the data classes to try to improve the data representation and reduce the data dimensonality. The application of LDA results in a dataset with the number os predictors columns equals the number of different classes minus one.
