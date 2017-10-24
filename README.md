@@ -89,6 +89,7 @@ The preliminary test results showed that ANN and SVM are very costly and to try 
 ## Points to improve
 
 As improvments would be do:
+
 	- Apllay a under or over sampling techinique on the original imbalanced dataset to define a dataset with less number of samples but with a better representation of all data instead of a random selection;
 	- Use other cleaning techniques specify to images data; 
 	- Try more different sets of parameters to KNN, SVM and ANN classifiers;
