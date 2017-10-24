@@ -109,6 +109,6 @@ As improvements would be do:
 
 ## Final considerations
 
-	- Some details about all the scenarios tested and the reasons why to use some techniques, parameters or combination of them were not documented in this document to try to make it the more cleaning as possible.
+	- Some details about all the scenarios tested, the reasons why to use some techniques parameters or combination of them and technical details about teh techniques were not documented in this document to try to make it as simple as possible.
 	- The final code contains comments about which technique is being applied on the main blocks of code. Other comments refer to techniques application that were applied to test other models but weren't used on the final model.
 
