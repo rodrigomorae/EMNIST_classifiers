@@ -12,9 +12,10 @@ Your company is developing a software to digitize handwritten text. Your team ha
 
 ## How to run the code
 	1 - download all files present in this directory;
-	2 - open the DeepX.r file;
-	3 - replace the mainDirectory variable value to the path were the files were downloaded;
-	4 - run the code;
+	2 - download the train and test files available [here](https://drive.google.com/open?id=0B0J_i2JzOaWcSTV5ZmJOcnNpMTg) in the same dir;
+	3 - open the DeepX.r file;
+	4 - replace the mainDirectory variable value to the path were the files were downloaded;
+	5 - run the code;
 
 Obs. the original code runs the best classifier founded. But it is possible to change parameters and to uncomment lines to get other classifiers and results. The steps 2 and 4.3.1 are analysis steps and can be ignored to run the classifier.
 
