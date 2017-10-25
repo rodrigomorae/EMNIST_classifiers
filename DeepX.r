@@ -1,4 +1,4 @@
-
+## remove all variables in the environment
 #rm(list = setdiff(ls(), lsf.str()));
 
 mainDirectory = "C:/RODRIGO/DeepX/";
