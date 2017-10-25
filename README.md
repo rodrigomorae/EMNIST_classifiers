@@ -12,12 +12,14 @@ Your company is developing a software to digitize handwritten text. Your team ha
 
 ## How to run the code
 	1 - download all files present in this directory;
-	2 - download the train and test files available [here](https://drive.google.com/open?id=0B0J_i2JzOaWcSTV5ZmJOcnNpMTg) in the same dir;
+	2 - download the train and test data files available in the link below in the same dir;
 	3 - open the DeepX.r file;
 	4 - replace the mainDirectory variable value to the path were the files were downloaded;
 	5 - run the code;
 
 Obs. the original code runs the best classifier founded. But it is possible to change parameters and to uncomment lines to get other classifiers and results. The steps 2 and 4.3.1 are analysis steps and can be ignored to run the classifier.
+
+[Train and test data files available here.](https://drive.google.com/open?id=0B0J_i2JzOaWcSTV5ZmJOcnNpMTg)
 
 ## The dataset
 The EMNIST dataset is a set of handwritten character digits derived from the [NIST Special Database 19](https://www.nist.gov/srd/nist-special-database-19)  and converted to a 28x28 pixel image format and dataset structure that directly matches the MNIST dataset (link is external) . Further information on the dataset contents and conversion process can be found in the paper available [here](https://arxiv.org/pdf/1702.05373v1.pdf). Original link [here](https://www.nist.gov/itl/iad/image-group/emnist-dataset).
