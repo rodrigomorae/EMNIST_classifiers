@@ -107,7 +107,7 @@ x_selected_norm=x_selected/255;
 
 ## DNN 
 library(h2o);
-h2o.init(nthreads=3);
+h2o.init(nthreads=-1);
 system.time(DNN_model <- trainDNNClassifier(x=x_selected_norm,y=y,directoryPath=mainDirectory));
 
 
