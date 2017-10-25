@@ -12,7 +12,7 @@ Your company is developing a software to digitize handwritten text. Your team ha
 
 ## How to run the code
 	1 - download all files present in this directory;
-	2 - download the train and test data files available in the link below in the same dir;
+	2 - download the train and test data files available on the link below in the same dir;
 	3 - open the DeepX.r file;
 	4 - replace the mainDirectory variable value to the path were the files were downloaded;
 	5 - run the code;
